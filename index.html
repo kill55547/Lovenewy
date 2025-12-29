@@ -2,7 +2,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>สวัสดีปีใหม่นะที่รัก</title>	    
+    <title>พรข้อสุดท้ายของปี... เพื่อเธอ</title>	    
     <link type="text/css" rel="stylesheet" href="file/default.css">
     <script type="text/javascript" src="file/jquery.min.js"></script>
     <script type="text/javascript" src="file/jscex.min.js"></script>
@@ -17,7 +17,7 @@
         function playAudio() {
             var audio = document.getElementById("myAudio");
             if (audio) {
-                audio.play().catch(function(e) { console.log("Audio play deferred"); });
+                audio.play().catch(function(e) { console.log("Audio deferred"); });
             }
         }
     </script>
@@ -32,12 +32,15 @@
             <div id="text">
                 <div id="code">
                     <span class="say">สวัสดีปีใหม่นะที่รัก 💞</span><br>
-                    <span class="say">ปีใหม่นี้ เค้าขอให้เธอมีความสุขมาก ๆ นะ 🎈</span><br>
-                    <span class="say">ขอบคุณที่อยู่ข้างกันมาตลอดเลยนะคับ 🍀</span><br>
-                    <span class="say">เค้าสัญญาว่าจะดูแลเธอให้ดีที่สุดแบบนี้ทุกวัน 💕</span><br>
-                    <span class="say">เธอคือของขวัญที่ดีที่สุดในชีวิตเค้าเลย ❤️</span><br>
-                    <span class="say">เริ่มต้นปีใหม่ไปด้วยกันแบบนี้ทุก ๆ ปีเลยน้าาา😊🏵️</span><br>
-                    <span class="say">รักเธอมากน้าคนเก่งของเค้า ❤️😘</span><br>
+                    <span class="say">อย่าทิ้งเค้าไปไหนเลยนะ</span><br>
+                    <span class="say">นี่คือคำขอร้องเพียงข้อเดียวของเค้า 🎈</span><br>
+                    <span class="say">และเป็นพรข้อสุดท้ายของปีนี้ที่เค้าอยากขอ 🍀</span><br>
+                    <span class="say">ขอให้เธอได้ยิ้มอย่างมีความสุขในทุกๆ วันนะ 💕</span><br>
+                    <span class="say">ทำอะไรก็ขอให้มีแต่สิ่งดีๆ เข้ามาหาเธอนะคนเก่ง ❤️</span><br>
+                    <span class="say">ขอให้อะไรแย่ๆ อย่าได้เข้ามาทำร้ายเธอเลย</span><br>
+                    <span class="say">ขอให้ทุกคนที่เธอได้พบเจอ ใจดีกับเธอเหมือนที่เค้าใจดี</span><br>
+                    <span class="say">รู้ไหมคับ เค้ายังตกหลุมรักเธอซ้ำๆ เสมอเลยนะ</span><br>
+                    <span class="say">แม้ว่าเราจะเป็นแฟนกันแล้วก็ตาม ❤️😘</span><br>
                 </div>
             </div>
             <div id="clock-box">
@@ -47,7 +50,6 @@
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
     </div>
-
     <script>
     (function() {
         var canvas = $('#canvas');
@@ -55,12 +57,10 @@
             $("#error").show();
             return false;
         }
-
         var width = canvas.width();
-        var height = canvas.height();        
+        var height = canvas.height();
         canvas.attr("width", width);
         canvas.attr("height", height);
-
         var opts = {
             seed: { x: width / 2 - 20, color: "rgb(190, 26, 37)", scale: 2 },
             branch: [
@@ -84,12 +84,10 @@
             bloom: { num: 700, width: 1080, height: 650 },
             footer: { width: 1200, height: 5, speed: 10 }
         }
-
         var tree = new Tree(canvas[0], width, height, opts);
         var seed = tree.seed;
         var foot = tree.footer;
         var hold = 1;
-
         canvas.click(function(e) {
             playAudio();
             var offset = canvas.offset(), x, y;
@@ -107,22 +105,18 @@
             y = e.pageY - offset.top;
             canvas.toggleClass('hand', seed.hover(x, y));
         });
-
         var seedAnimate = eval(Jscex.compile("async", function () {
             seed.draw();
             while (hold) { $await(Jscex.Async.sleep(10)); }
             while (seed.canScale()) { seed.scale(0.95); $await(Jscex.Async.sleep(10)); }
             while (seed.canMove()) { seed.move(0, 2); foot.draw(); $await(Jscex.Async.sleep(10)); }
         }));
-
         var growAnimate = eval(Jscex.compile("async", function () {
             do { tree.grow(); $await(Jscex.Async.sleep(10)); } while (tree.canGrow());
         }));
-
         var flowAnimate = eval(Jscex.compile("async", function () {
             do { tree.flower(2); $await(Jscex.Async.sleep(10)); } while (tree.canFlower());
         }));
-
         var moveAnimate = eval(Jscex.compile("async", function () {
             tree.snapshot("p1", 240, 0, 610, 680);
             while (tree.move("p1", 500, 0)) { foot.draw(); $await(Jscex.Async.sleep(10)); }
@@ -133,7 +127,6 @@
             $await(Jscex.Async.sleep(300));
             canvas.css("background", "none");
         }));
-
         var textAnimate = eval(Jscex.compile("async", function () {
             var expectDate = new Date(2025, 3, 25);
             $("#code").show().typewriter();
@@ -143,7 +136,6 @@
                 $await(Jscex.Async.sleep(1000));
             }
         }));
-	    
         var runAsync = eval(Jscex.compile("async", function () {
             $await(seedAnimate());
             $await(growAnimate());
