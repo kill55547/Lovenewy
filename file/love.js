@@ -167,9 +167,9 @@
 
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
-            ctx.font = "12px,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
+            ctx.font = "12px,Verdana";
             ctx.fillText("Click Me:) ", 30, -5);
-            ctx.fillText("HAPPY NEW YEAR!", 28, 10);
+            ctx.fillText("happy new year!", 28, 10);
             ctx.restore();
         },
         clear: function() {
@@ -700,9 +700,9 @@
 
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
-            ctx.font = "12px,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
+            ctx.font = "12px,Verdana";
             ctx.fillText("Click Me:) ", 30, -5);
-            ctx.fillText("HAPPY NEW YEAR!", 28, 10);
+            ctx.fillText("happy new year!", 28, 10);
             ctx.restore();
         },
         clear: function() {
@@ -1065,3 +1065,4 @@
 
 
 })(window);
+
